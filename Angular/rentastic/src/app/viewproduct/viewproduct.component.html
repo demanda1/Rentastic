@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+
+<script>
+        /* Execute the magnify function: */
+        magnify("myimage", 3);
+        /* Specify the id of the image, and the strength of the magnifier glass: */
+        </script>
+
+
+<div class="container-fluid">
+    <div class="row content">
+      <div *ngFor="let object of List" class="col-sm-3 sidenav">
+        <div class="card" style="width: 22rem; background-color:turquoise">
+            <div class="card-body">
+              <h5 class="font-weight-bold mb-3">Description</h5>
+              <p class="mb-0"> {{object.productdescription}}</p>
+            </div>
+            <div class="card-body">
+                    <h5 class="font-weight-bold mb-3">Price : ₹ {{object.productprice}}/month</h5>
+                    <h5 class="mb-0"></h5>
+                    Select Renting Period: <select class="mdb-select md-form">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                          </select>
+                  </div>
+            <div class="card-body">
+              <a href="#!" class="card-link">Card link</a>
+              <a href="#!" class="card-link">Another link</a>
+            </div>
+          </div>
+      </div>
+  
+      <div class="col-sm-6">
+        
+        <div class="card">
+            <div *ngFor="let object of List" class="card-header">
+              <h2>{{object.productname}}</h2>
+            </div>
+            <div   class="card-body img-magnifier-container item" style="display:inline-block" >
+                
+                <ngx-image-zoom
+                [thumbImage]=myThumbnail
+                [fullImage]="myFulresImage"
+                [magnification]="2"
+                [enableScrollZoom]="true"
+                [enableLens]="true"
+                [lensWidth]="250"
+                [lensHeight]="250"
+            ></ngx-image-zoom>
+                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+            </div>
+          </div>
+      </div>
+      <div class="col-sm-3">
+            <div class="card" style="width: 22rem; background-color:turquoise">
+                    <div class="card-body">
+                      <h5 class="font-weight-bold mb-3">Panel title</h5>
+                      <p class="mb-0">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+                      <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                    <div class="card-body">
+                      <a href="#!" class="card-link">Card link</a>
+                      <a href="#!" class="card-link">Another link</a>
+                    </div>
+            </div>
+      </div>
+
+</div>
+</div>
+  <footer class="container-fluid">
+    <p>Footer Text</p>
+  </footer>
+  

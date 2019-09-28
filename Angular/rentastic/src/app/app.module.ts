@@ -10,20 +10,18 @@ import { ProductcatalogueComponent } from './productcatalogue/productcatalogue.c
 import { AdvertiseComponent } from './advertise/advertise.component';
 import { CartpageComponent } from './cartpage/cartpage.component';
 import { CartitemComponent } from './cartitem/cartitem.component';
+import { ViewproductComponent } from './viewproduct/viewproduct.component';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 @NgModule({
   declarations: [
     AppComponent,
-   RoutingComponent,
-   NavbarComponent,
-   ProductcatalogueComponent,
-   AdvertiseComponent,
-   CartpageComponent,
-   CartitemComponent
+   RoutingComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxImageZoomModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

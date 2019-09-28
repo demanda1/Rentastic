@@ -49,7 +49,7 @@ export class ProductcatalogueComponent implements OnInit {
     }
     handleClick2(category:any){
       localStorage.setItem("city",this.city);
-      let url= "http://localhost:3000/showproduct?category="+category+"&city="+city;
+      let url= "http://localhost:3000/showproduct?category="+category+"&city="+this.city;
       fetch(url,{
         method:"GET",
         headers:{
