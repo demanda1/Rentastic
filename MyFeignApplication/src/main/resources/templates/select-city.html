@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+</script>
+<title>Rentastic</title>
+</head>
+<body>
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h3>WELCOME TO RENTASTIC</h3></div>
+    </div>
+   </div>
+  </div>
+  <div class="container">
+  <div class="panel-group">
+    <div class="panel panel-info">
+      <div class="panel-heading"><h3>Select your city</h3></div>
+      <div class="panel-body">
+      	<form method="get" action="showhomepage">
+          	<input type="submit" name="city" value="bangalore" class="btn btn-primary">
+          	<input type="submit" name="city" value="hyderabad" class="btn btn-success">
+          	<input type="submit" name="city" value="pune" class=" btn btn-warning">
+         </form>
+      </div>
+    </div>
+   </div>
+  </div>
+<!-- Modal -->
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+     	 
+        <div class="modal-body">
+          <h3>Choose your City</h3>
+          <form method="get" action="showhomepage">
+          	<input type="submit" name="city" value="bangalore" class="btn btn-primary">
+          	<input type="submit" name="city" value="hyderabad" class="btn btn-success">
+          	<input type="submit" name="city" value="pune" class=" btn btn-warning">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</body>
+</html>

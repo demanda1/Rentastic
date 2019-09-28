@@ -1,0 +1,93 @@
+<!--Cart Body starts-->
+<div style="background-color: violet">
+<div class="card-header container shadow-lg bg-white rounded" style="color:ivory;background-color:tomato !important; border-radius:20px">
+        <div class="row">
+        <div class="col-4"> <div class="row"> <div class="col-4">Item</div><div class="col-8">Product Details</div></div></div>
+        <div class="col-2">Quantity</div>
+        <div class="col-1">Price ₹</div>
+        <div class="col-4">Delivery Address</div>
+        <div class="col-1">Sub-Total</div>
+        </div>
+      </div>
+</div>
+      <!--CART CARD STARTS-->
+      <div *ngFor="let object of List">
+      <div  class="card container shadow-lg bg-white rounded" style="border-radius:10px;" >
+      <div class="card-body" >
+      <div class="row"  >
+        <div class="col-4" style="border-right: 2px solid lightgray" >
+         <div class="row" >
+          <div class="col-4"  >
+              <img class="btn" src="{{object.image}}" alt="" style="width:100%;"></div>
+        
+              <div class="col-8 btn" >
+                  <h5>{{object.productname}}</h5>
+                  <p>description</p>
+                  <span class="fa fa-tag" style="color:royalblue"><h6>{{object.rentersname}}</h6></span>
+              </div>
+
+          </div>
+          <div class="row">
+              <div class="col-4">
+                  <p class="fa fa-star" style="color:gold"></p><p class="glyphicon glyphicon-star" style="color:gold"></p><p class="glyphicon glyphicon-star" style="color:gold"></p><p class="glyphicon glyphicon-star" style="color:gold"></p></div>
+                          
+              <div class="col-8" style="text-align:right;">
+                      <span class="fa fa-trash btn" style="color:gray"></span>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-2 container" style="background-color:white; border-right: 1px solid lightgray">
+          <span class="fa fa-minus btn"></span> <input type="text" style="width:35px; height:25px; "> <span class="fa fa-plus btn"></span>
+          <div style="width:150px;padding-top:62px">
+              <select class="form-control" id="promocode" name="promo code">
+                <option value="">Put Promo code</option>
+                <option>FIRSTRENT</option>
+                <option>RENT50</option>
+                <option>RENTFLY</option>
+                <option>RENT10</option>
+              </select>
+            </div> 
+        </div>
+      <div class="col-1 " style="background-color:white;border-right: 2px solid lightgray">
+            <span id="sign" style="font-weight: bolder">₹</span><span id="price" style="font-weight: bolder">{{object.price}}</span>
+      </div>
+      <div class="col-4" style="border-right: 2px solid lightgray">
+             <span class="fa fa-pencil btn"></span>
+             <h5>IBM-D3 Block, Manyata Embassy Tech Park, Nagawara, Bangalore</h5>
+             <h6 style="font-style: italic;color:green">Delivery in 2 days</h6>
+      </div>
+      <div class="col-1 " style="background-color:white;">
+          <span id="sign2" style="font-weight: bolder">₹</span><span id="subtotal" style="font-weight: bolder">{{object.amount}}</span>
+      </div> 
+     </div>
+      </div>
+    </div>  </div>
+     <!--CART CARD ENDS-->
+
+     
+     
+
+     <!--CART footer-->
+     <div>
+     <div class="card-header container shadow-lg" style="color:ivory;background-color:tomato; border-radius:5px">
+          <div class="row">
+          <div class="col-4" style="padding-top: 22px"> <input type="button" class="btn btn-default" value="+ Add More Items"> </div>
+          <div class="col-2"> </div>
+          <div class="col-1"></div>
+          <div class="col-4" style="text-align: right">
+            <div>Total Amount:</div>
+            <div>Delivery charge:</div>
+            <h4>Total Payable Amount:</h4>
+          </div>
+          <div class="col-1">
+            <div>₹10000</div>
+            <div>₹10</div>
+            <h4>₹10010</h4>
+          </div>
+          </div>
+        </div> </div>
+      <!--CART Footer Ends-->
+      <div>
+      <div class="container" style="padding: 10px; text-align:end"> <input type="button" class="btn btn-success btn-lg" value="Checkout"></div>
+      </div>

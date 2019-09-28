@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   
+</head>
+<body>
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Login as : </h3>
+          	<button name="renter" value="renter" class="btn btn-warning" data-toggle="modal" data-target="#renterlogin">Renter</button>
+          	<button type="submit" name="customer" value="customer" class="btn btn-info"  data-toggle="modal" data-target="#customerlogin">Customer</button>
+
+        </div>
+    </div>
+   </div>
+  </div>
+ <!-- Modal content-->
+ <div class="modal fade" id="renterlogin" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Renter Login</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+  <form class="form-inline" action="rentersprofile" method="get">
+    <div class="form-group" >
+      <label for="email">Renter Id:</label>
+      <input type="text" class="form-control" name="sid">
+    </div>
+    <button type="submit" class="btn btn-warning">Submit</button>
+  </form>
+</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+   
+   <div class="modal fade" id="customerlogin" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">customer Login</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+  <form class="form-inline" action="customersprofile" method="get">
+    <div class="form-group">
+      <label for="email">customer Id:</label>
+      <input type="text" class="form-control" name="cid">
+    </div>
+    <button type="submit" class="btn btn-warning">Submit</button>
+  </form>
+</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+   <!-- Modal ends -->
+ 
+<div class="container">
+  <div class="panel-group">
+    <div class="panel panel-info">
+      <div class="panel-heading"><h3>Want to change city?</h3></div>
+      <div class="panel-body">
+      	<form method="get">
+          	<input type="submit" name="city" value="bangalore" class="btn btn-primary">
+          	<input type="submit" name="city" value="hyderabad" class="btn btn-success">
+          	<input type="submit" name="city" value="pune" class=" btn btn-warning">
+         </form>
+      </div>
+    </div>
+   </div>
+  </div>
+<div class="container">
+<table  class="table table-bordered table-striped" >
+		<thead class="thead-dark">
+			<tr>
+				<th>Product name</th>
+				<th>Product price</th>
+				<th>Quantity</th>
+				<th></th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="p : ${productlist}">
+			
+				<td th:text="${p.productname}" />	
+				<td th:text="${p.productprice}" />
+				<td th:text="${p.productquantity}"/>
+				<th><button class="btn btn-success">Add to cart</button></th>
+			</tr>
+		</tbody>		
+	</table>
+</div>
+</body>
+</html>
