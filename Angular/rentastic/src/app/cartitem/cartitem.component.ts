@@ -6,20 +6,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cartitem.component.css']
 })
 export class CartitemComponent implements OnInit {
-
+cid:any
+List:any
+address:any;
   constructor() { }
 
   ngOnInit() {
-  }
+    let url3="http://localhost:3000/viewcart?cid=EcSNPq";
+    fetch(url3,{
+      method:"GET",
+      headers:{
+        "content-type":"application/json"
+      }
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data);
+      this.List=data;
+    })
 
-  public List:any[] = [
-    {image:"https://github.com/demanda1/Project/blob/master/images/beds.png?raw=true", productname:"Maharaja Bed",
-     rentersname:"Deepak Mandal", price:"10000",amount:"10000"},
-     {image:"https://github.com/demanda1/Project/blob/master/images/chair.png?raw=true", productname:"Wodden chair",
-     rentersname:"Deepak Mandal", price:"500",amount:"500"},
-     {image:"https://github.com/demanda1/Project/blob/master/images/fridge.png?raw=true", productname:"samsung refrigerator",
-     rentersname:"Deepak Mandal", price:"3000",amount:"3000"},
-     
-  ]
+    let url4="http://localhost:3000/findcustomer?cid=EcSNPq";
+    fetch(url4,{
+      method:"GET",
+      headers:{
+        "content-type":"application/json"
+      }
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data);
+      this.address=data[0].customeraddress;
+    })
+
+  }
 
 }

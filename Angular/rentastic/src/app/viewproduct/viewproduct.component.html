@@ -9,36 +9,37 @@
 
 <div class="container-fluid">
     <div class="row content">
-      <div *ngFor="let object of List" class="col-sm-3 sidenav">
-        <div class="card" style="width: 22rem; background-color:turquoise">
-            <div class="card-body">
-              <h5 class="font-weight-bold mb-3">Description</h5>
-              <p class="mb-0"> {{object.productdescription}}</p>
-            </div>
-            <div class="card-body">
-                    <h5 class="font-weight-bold mb-3">Price : ₹ {{object.productprice}}/month</h5>
-                    <h5 class="mb-0"></h5>
-                    Select Renting Period: <select class="mdb-select md-form">
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                          </select>
-                  </div>
-            <div class="card-body">
-              <a href="#!" class="card-link">Card link</a>
-              <a href="#!" class="card-link">Another link</a>
-            </div>
-          </div>
-      </div>
-  
+      
+            <div class="col-sm-3 bg-dark" >
+                    <div class="card-header bg-dark" >
+                            <h4 style="-webkit-text-fill-color: cornsilk">You may also like</h4>
+                          </div>
+                    <div class="card" style="width: 15rem; background-color:turquoise" style="float:right">
+                            <div *ngFor="let object2 of List2" class="mx-5 card card text-center shadow-lg p-3 mb-5 bg-white rounded"
+                         style=" display:inline-block;border-color: turquoise; ">
+                       <div class="card-body images">
+                         <img src={{object2.productimage}} style="border: none" class="img-thumbnail pics" alt="Cinque Terre" >
+                       </div>
+                       <h5 class="card-title">{{object2.productname}}</h5>
+                         <a href="/viewproduct/{{city}}/{{object2.productid}}" class="btn btn-primary fa fa-search fa-lg search" style="border-radius: 50%"></a>
+                         <span>&nbsp;&emsp;&nbsp;</span>
+                         <a href="/cartpage" class="btn btn-success fa fa-cart-plus fa-lg search" style="border-radius:40%"></a>
+                     </div>
+                    </div>
+                    
+              </div>
+
+
+
       <div class="col-sm-6">
         
-        <div class="card">
-            <div *ngFor="let object of List" class="card-header">
-              <h2>{{object.productname}}</h2>
+        <div class="card  shadow p-3 mb-5 bg-white rounded" >
+            <div *ngFor="let object of List" class="card-header bg-dark" >
+              <h2 style="-webkit-text-fill-color: cornsilk">{{object.productname}}</h2>
             </div>
-            <div   class="card-body img-magnifier-container item" style="display:inline-block" >
+            <cite title="Source Title" Style=" font-size:13px; color:royalblue">
+                    <br>&nbsp;<i class="fa fa-star"></i>Rentastic Verified Product</cite>
+            <div   class="card-body img-magnifier-container item" style="display:inline-block;" >
                 
                 <ngx-image-zoom
                 [thumbImage]=myThumbnail
@@ -49,27 +50,38 @@
                 [lensWidth]="250"
                 [lensHeight]="250"
             ></ngx-image-zoom>
-                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                <footer class="blockquote-footer">Hover to zoom </footer>
             </div>
           </div>
       </div>
-      <div class="col-sm-3">
+
+
+
+      <div *ngFor="let object of List" class="col-sm-3 sidenav">
             <div class="card" style="width: 22rem; background-color:turquoise">
-                    <div class="card-body">
-                      <h5 class="font-weight-bold mb-3">Panel title</h5>
-                      <p class="mb-0">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">Cras justo odio</li>
-                      <li class="list-group-item">Dapibus ac facilisis in</li>
-                      <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                    <div class="card-body">
-                      <a href="#!" class="card-link">Card link</a>
-                      <a href="#!" class="card-link">Another link</a>
-                    </div>
-            </div>
-      </div>
+                <div class="card-body">
+                  <h5 class="font-weight-bold mb-3">Description</h5>
+                  <p class="mb-0"> {{object.productdescription}}</p>
+                </div>
+                <div class="well well-sm" style="margin:20px;opacity: inherit; border-color: green;border-style:double">get extra <b> 10%off </b> on <b> HDFC </b>cards</div>
+                <div class="card-body">
+                        <h5 class="font-weight-bold mb-3">Price : ₹ {{object.productprice}}/month</h5>
+                        <h5 class="mb-0"></h5>
+                        Select Renting Period: <select class="mdb-select md-form">
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                              </select>
+                      </div>
+                    <div><button (click)="addtocart('p1','EcSNPq')" class="fa fa-cart-plus fa-lg search btn btn-success" style="width: 200px;margin-left: 20px;"> Add to cart</button></div>
+                <div class="card-body">
+                  <a href="#!" class="card-link">Card link</a>
+                  <a href="#!" class="card-link">Another link</a>
+                </div>
+              </div>
+          </div>
+
 
 </div>
 </div>

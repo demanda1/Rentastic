@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'homepage/:city' ,component:HomepageComponent},
   {path:'productcatalogue/:category/:city', component:ProductcatalogueComponent},
   {path:'cartpage',component:CartpageComponent},
-  {path:'viewproduct/:pid',component:ViewproductComponent},
+  {path:'viewproduct/:city/:pid',component:ViewproductComponent},
   {path:'advertise',component:AdvertiseComponent},
   {path:'navbar',component:NavbarComponent},
   {path:'cartitem',component:CartitemComponent}

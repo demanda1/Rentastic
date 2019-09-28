@@ -18,18 +18,18 @@
         <div class="col-4" style="border-right: 2px solid lightgray" >
          <div class="row" >
           <div class="col-4"  >
-              <img class="btn" src="{{object.image}}" alt="" style="width:100%;"></div>
+              <img class="btn" src={{object.productimage}} alt="" style="width:120px"></div>
         
               <div class="col-8 btn" >
                   <h5>{{object.productname}}</h5>
-                  <p>description</p>
+                  <p>{{object.productsubcategory}}</p>
                   <span class="fa fa-tag" style="color:royalblue"><h6>{{object.rentersname}}</h6></span>
               </div>
 
           </div>
           <div class="row">
               <div class="col-4">
-                  <p class="fa fa-star" style="color:gold"></p><p class="glyphicon glyphicon-star" style="color:gold"></p><p class="glyphicon glyphicon-star" style="color:gold"></p><p class="glyphicon glyphicon-star" style="color:gold"></p></div>
+                  <p class="fa fa-star" style="color:gold"></p><p class="fa fa-star" style="color:gold"></p><p class="fa fa-star" style="color:gold"></p><p class="fa fa-star" style="color:gold"></p></div>
                           
               <div class="col-8" style="text-align:right;">
                       <span class="fa fa-trash btn" style="color:gray"></span>
@@ -38,10 +38,10 @@
         </div>
 
         <div class="col-2 container" style="background-color:white; border-right: 1px solid lightgray">
-          <span class="fa fa-minus btn"></span> <input type="text" style="width:35px; height:25px; "> <span class="fa fa-plus btn"></span>
+          <span class="fa fa-minus btn"></span> <input type="text" value="1" style="width:35px; height:25px; "> <span class="fa fa-plus btn"></span>
           <div style="width:150px;padding-top:62px">
               <select class="form-control" id="promocode" name="promo code">
-                <option value="">Put Promo code</option>
+                <option value="">Promo code</option>
                 <option>FIRSTRENT</option>
                 <option>RENT50</option>
                 <option>RENTFLY</option>
@@ -50,11 +50,11 @@
             </div> 
         </div>
       <div class="col-1 " style="background-color:white;border-right: 2px solid lightgray">
-            <span id="sign" style="font-weight: bolder">₹</span><span id="price" style="font-weight: bolder">{{object.price}}</span>
+            <span id="sign" style="font-weight: bolder">₹</span><span id="price" style="font-weight: bolder">{{object.productprice}}</span>
       </div>
-      <div class="col-4" style="border-right: 2px solid lightgray">
-             <span class="fa fa-pencil btn"></span>
-             <h5>IBM-D3 Block, Manyata Embassy Tech Park, Nagawara, Bangalore</h5>
+      <div class="col-4"  style="border-right: 2px solid lightgray">
+             <span class="fa fa-check btn"></span>
+             <h5>{{address}}</h5>
              <h6 style="font-style: italic;color:green">Delivery in 2 days</h6>
       </div>
       <div class="col-1 " style="background-color:white;">
@@ -72,7 +72,7 @@
      <div>
      <div class="card-header container shadow-lg" style="color:ivory;background-color:tomato; border-radius:5px">
           <div class="row">
-          <div class="col-4" style="padding-top: 22px"> <input type="button" class="btn btn-default" value="+ Add More Items"> </div>
+          <div class="col-4" style="padding-top: 22px"> <input type="button" class="btn btn-warning" value="+ Add More Items"> </div>
           <div class="col-2"> </div>
           <div class="col-1"></div>
           <div class="col-4" style="text-align: right">
@@ -91,3 +91,6 @@
       <div>
       <div class="container" style="padding: 10px; text-align:end"> <input type="button" class="btn btn-success btn-lg" value="Checkout"></div>
       </div>
+
+
+      
