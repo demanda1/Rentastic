@@ -1,0 +1,62 @@
+-- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
+--
+-- Host: localhost    Database: rentastic
+-- ------------------------------------------------------
+-- Server version	8.0.17
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `product`
+--
+
+DROP TABLE IF EXISTS `product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `productid` varchar(10) NOT NULL,
+  `productname` varchar(50) NOT NULL,
+  `productcategory` varchar(50) NOT NULL,
+  `productsubcategory` varchar(50) NOT NULL,
+  `productdescription` varchar(255) NOT NULL,
+  `productquantity` int(11) NOT NULL,
+  `productprice` int(11) NOT NULL,
+  `productavailability` tinyint(1) NOT NULL,
+  `productimage` varchar(255) DEFAULT NULL,
+  `renterid` varchar(10) DEFAULT NULL,
+  `categoryid` varchar(10) DEFAULT NULL,
+  `cityid` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product`
+--
+
+LOCK TABLES `product` WRITE;
+/*!40000 ALTER TABLE `product` DISABLE KEYS */;
+INSERT INTO `product` VALUES (1,'p1','MahindraScorpio','automobiles','car','Front and Rear Power Windows, Driver and Passenger Airbags, ABS, Yes ABS, Central Locking, Yes Central Locking, Front Fog Lamps, Child Safety Lock, Yes Child Safety Lock, Adjustable headlamps',3,50000,1,'https://github.com/demanda1/Project/blob/master/images/mahindra-scorpio1.png?raw=true','1','1','1'),(2,'p2','RoyalMaharajBed','furniture','Bed','Maharaja Bed high quality teak & hand made carving, made by processed teak wood, 5 layer high quality polish, nut bolts fitting - easy to move, hydraulic box, ISI mark 18mm ply wood, 5 drawers + 2 lockers, 6x6ft',3,10000,1,'https://github.com/demanda1/Project/blob/master/images/beds.png?raw=true','2','3','2'),(3,'p3','Microwave Oven','electronics','homeappliance','28L Capacity: Can be used for baking along with grilling, reheating, defrosting and cooking.Touch Key Pad (Membrane) is sensitive to touch and easy to clean,Also included in the box: User manual, warranty card',4,2000,1,'https://github.com/demanda1/Project/blob/master/images/oven.png?raw=true','3','2','3'),(4,'p4','Mi Tv','electronics','homeappliance','Smart TV Full HD Display, 1980x1080p , slim, plastic body, with 3 USB Ports and Dolby Digital Sound .',3,3500,1,'https://github.com/demanda1/Project/blob/master/images/mitv.png?raw=true','1','2','3'),(5,'p5','Rocking Chair','furniture','chairs','Comfortable, Strong, Wodden Chair . With Cussions on the back support.',6,500,1,'https://github.com/demanda1/Project/blob/master/images/chair.png?raw=true','1','3','2'),(6,'p6','Samsung Washing Machine','electronics','homeappliances','25kg capacity, Fully automated, wash rince dryer, with Silver Sanitazation and Odour Removal Technology',5,200,1,'https://github.com/demanda1/Project/blob/master/images/washingmachine.png?raw=true','2','2','3'),(7,'p7','Bajaj Pulsar','automobiles','bikes','150cc, Self start, 60kmpl milleage, latest model with digital dashboard',6,8000,1,'https://github.com/demanda1/Project/blob/master/images/bajaj-pulsar3.png?raw=true','2','1','1'),(8,'p8','Honda Activa','automobiles','bikes','Self start, 64kmpl milleage, latest model with digital dashboard',4,6000,1,'https://github.com/demanda1/Project/blob/master/images/honda-activa1.png?raw=true','3','1','2'),(16,'p9','Bajaj-Pulsar-100','automobiles','bikes','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,8000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/Bajaj-Pulsar1.jpg?raw=true','3','1','3'),(17,'p10','Bajaj-Pulsar-200','automobiles','bikes','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,8000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/bajaj-pulsar2.jpg?raw=true','2','1','2'),(19,'p12','Hero-Pleasure','automobiles','bikes','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,6000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/heropleasure.jpg?raw=true','1','1','3'),(20,'p13','Mahindra-Jeep-100','automobiles','cars','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,20000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/jeep1.png?raw=true','2','1','1'),(21,'p11','Bajaj-Pulsar-2X50','automobiles','bikes','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,8000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/bajaj-pulsar3.png?raw=true','2','1','1'),(22,'p14','Mahindra-Jeep-300','automobiles','cars','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',2,21000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/jeep2.png?raw=true','3','1','2'),(23,'p15','KTM-200','automobiles','bikes','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',2,10000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/ktm1.png?raw=true','3','1','2'),(24,'p16','land-cruizer','automobiles','cars','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',2,40000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/landcruizer.png?raw=true','1','1','3'),(25,'p25','renault-duster','automobiles','cars','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',2,40000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/renault-duster1.png?raw=true','3','1','3'),(26,'p26','Royal-Enfield-classic100','automobiles','bikes','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,15000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/royal1.png?raw=true','2','1','1'),(27,'p17','Royal-Enfield-classic200','automobiles','bikes','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,15000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/royal2.png?raw=true','3','1','2'),(28,'p18','Royal-Enfield-classic300','automobiles','bikes','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,15000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/royal5.png?raw=true','1','1','2'),(29,'p19','Splendorplus','automobiles','bikes','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,6000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/splendor1.png?raw=true','2','1','3'),(30,'p20','Swift-Dzire','automobiles','cars','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,20000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/swiftdzire1.png?raw=true','1','1','1'),(31,'p21','Vespa100','automobiles','cars','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,8000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/vespa1.png?raw=true','2','1','1'),(32,'p22','Vespa200','automobiles','cars','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,8000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/vespa2.png?raw=true','3','1','2'),(33,'p23','Vespa300','automobiles','bikes','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,8000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/vespa1.png?raw=true','2','1','3'),(34,'p24','Vespa300','automobiles','cars','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,20000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/vespa1.png?raw=true','1','1','1'),(35,'p28','aladdin carpet ','furniture','carpets','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,3000,1,'https://github.com/demanda1/Project/blob/master/images/icons/carpet.png?raw=true','1','3','1'),(36,'p29','ginn carpet ','furniture','carpets','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,3000,1,'https://github.com/demanda1/Project/blob/master/images/icons/carpet2.png?raw=true','2','3','3'),(37,'p30','Royal carpet ','furniture','carpets','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,3000,1,'https://github.com/demanda1/Project/blob/master/images/icons/carpet3.jpg?raw=true','3','3','3'),(38,'p31','Supreme Chair 100 ','furniture','chairs','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,1000,1,'https://github.com/demanda1/Project/blob/master/images/icons/chair3.png?raw=true','1','3','1'),(39,'p32','Supreme Chair 200 ','furniture','chairs','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,1000,1,'https://github.com/demanda1/Project/blob/master/images/icons/chair4.png?raw=true','2','3','2'),(40,'p33','Supreme Chair 300 ','furniture','chairs','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,1000,1,'https://github.com/demanda1/Project/blob/master/images/icons/chair5.png?raw=true','3','3','2'),(41,'p36','cupboard-200 ','furniture','cupboards','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,5000,1,'https://github.com/demanda1/Project/blob/master/images/icons/cupboard1.png?raw=true','2','3','1'),(42,'p37','cupboard-400 ','furniture','cupboards','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,5000,1,'https://github.com/demanda1/Project/blob/master/images/advertize/jeep2.png?raw=true','1','3','1'),(43,'p38','cupboard-500 ','furniture','cupboards','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,5000,1,'https://github.com/demanda1/Project/blob/master/images/icons/cupboard2.png?raw=true','3','3','2'),(44,'p39','cupboard-600 ','furniture','cupboards','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,5000,1,'https://github.com/demanda1/Project/blob/master/images/icons/cupboard5.png?raw=true','3','3','3'),(45,'p41','Deep-Fridge ','electronics','refrigerator','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,5000,1,'https://github.com/demanda1/Project/blob/master/images/icons/deepfridge2.png?raw=true','3','2','2'),(46,'p42','Whirlpool Fridge 100','electronics','refrigerator','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,5000,1,'https://github.com/demanda1/Project/blob/master/images/icons/fridge1.png?raw=true','2','2','2'),(47,'p43','Whirlpool Fridge 200','electronics','refrigerator','Carburetor Fuel System, Single Channel ABS, Halogen Head Lamp, Alloy Wheels, Tubeless Tyre',3,5000,1,'https://github.com/demanda1/Project/blob/master/images/icons/fridge2.png?raw=true','1','2','1');
+/*!40000 ALTER TABLE `product` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-09-29 22:21:37
