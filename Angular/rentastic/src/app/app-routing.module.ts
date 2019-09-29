@@ -8,16 +8,22 @@ import { ViewproductComponent } from './viewproduct/viewproduct.component';
 import { AdvertiseComponent } from './advertise/advertise.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CartitemComponent } from './cartitem/cartitem.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path:'',component:SelectcityComponent},
+  {path:'home',component:HomepageComponent},
   {path:'homepage/:city' ,component:HomepageComponent},
   {path:'productcatalogue/:category/:city', component:ProductcatalogueComponent},
   {path:'cartpage',component:CartpageComponent},
   {path:'viewproduct/:city/:pid',component:ViewproductComponent},
   {path:'advertise',component:AdvertiseComponent},
   {path:'navbar',component:NavbarComponent},
-  {path:'cartitem',component:CartitemComponent}
+  {path:'cartitem',component:CartitemComponent},
+  {path:'register',component:RegistrationComponent},
+  {path:'**',component:PageNotFoundComponent}
 ];
 
 @NgModule({
@@ -26,4 +32,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const RoutingComponent =[SelectcityComponent, HomepageComponent ,ProductcatalogueComponent, CartpageComponent,
-                                ViewproductComponent, AdvertiseComponent, NavbarComponent,CartitemComponent];
+                                ViewproductComponent, AdvertiseComponent, NavbarComponent,CartitemComponent,
+                                LoginComponent,RegistrationComponent,PageNotFoundComponent];

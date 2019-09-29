@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,14 +7,26 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./productcatalogue.component.css']
 })
 export class ProductcatalogueComponent implements OnInit {
+  @ViewChild('openModal',undefined) openModal:ElementRef;
+  
  city:any;
  category:any;
  List:any
+ username:string;
+  userid:string;
+  key:'123456$#@$^@1ERF';
+  _url:any;
+  cid:any;
+  cart:string;
+  addurl:any;
+   
   constructor(private router:Router,private activatedRoute:ActivatedRoute) {
     this.activatedRoute.params.subscribe(params=>{ this.category=params['category'],this.city=params['city']});
     }
 
   ngOnInit() {
+    this.loggedInUser();
+    this.city=localStorage.getItem('city');
     let url= "http://localhost:3000/showproduct?category="+this.category+"&city="+this.city;
     fetch(url,{
       method:"GET",
@@ -28,6 +40,25 @@ export class ProductcatalogueComponent implements OnInit {
         console.log(data)
       this.List=data;
     })
+
+    this.cid=localStorage.getItem('token');
+    let url3="http://localhost:3000/viewcart?cid="+this.cid;
+  fetch(url3,{
+    method:"GET",
+    headers:{
+      "content-type":"application/json"
+    }
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    console.log(data);
+    if(data[0]!=null){
+      this.cart='items';
+    }
+    else{
+      this.cart='noitems';
+    }
+  })
      
     }
 
@@ -63,5 +94,42 @@ export class ProductcatalogueComponent implements OnInit {
         this.List=data;
       })
     }
+
+    loggedInUser(){
+      this.userid =localStorage.getItem('token');
+      if(this.userid!=undefined){ 
+      this._url = 'http://localhost:3000/findcustomer?cid='+this.userid;
+      fetch(this._url)
+      .then(res=>res.json())
+      .then(data=>{
+        this.username=data[0].customername;      
+      })
+    }
+    else{
+     this.username='noLoggedInUser'
+    }
+  }
+
+
+  addtocart(pid:any){
+    console.log("bought the product",pid);
+    this.cid=localStorage.getItem('token');
+    if(this.cid!==undefined){
+    let addurl="http://localhost:3000/mycart/"+pid+"/"+this.cid;
+    fetch(addurl,{
+      method:"GET",
+      headers:{
+        "content-type":"application/json"
+      }
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data);
+      if(data!=null){
+        this.openModal.nativeElement.click();
+      }
+    })
+  }
+}
 
 }

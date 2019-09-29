@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import { AppRoutingModule, RoutingComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SelectcityComponent } from './selectcity/selectcity.component';
@@ -21,7 +21,8 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxImageZoomModule.forRoot()
+    NgxImageZoomModule.forRoot(),
+    FormsModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

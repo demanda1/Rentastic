@@ -1,24 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-nav-bar',
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.css']
 })
-export class NavbarComponent implements OnInit {
- city:any
- username:string;
- userid:string;
- key:'123456$#@$^@1ERF';
- _url:any;
+export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  username:string;
+  userid:string;
+  key:'123456$#@$^@1ERF';
+  _url:any;
 
-  ngOnInit() {
-    this.city=localStorage.getItem("city");
+  constructor() {
+    
+  }
+   
+
+  ngOnInit(){
+    
     this.loggedInUser();
   }
-
 
   loggedInUser(){
     this.userid =localStorage.getItem('token');
@@ -34,5 +37,5 @@ export class NavbarComponent implements OnInit {
    this.username='noLoggedInUser'
   }
 }
-  
+
 }

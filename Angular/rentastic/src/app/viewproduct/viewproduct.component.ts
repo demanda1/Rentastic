@@ -13,11 +13,29 @@ List2:any;
 pid:any;
 myFullresImage:any;
 myThumbnail:any;
+cid:string; 
+urlnew:string;
+cart:string;
+username:string;
+
   constructor(private router:Router,private activatedRoute:ActivatedRoute) {
     this.activatedRoute.params.subscribe(params=>{ this.pid=params['pid'], this.city=params['city']});
      }
 
   ngOnInit() {
+    this.cid =localStorage.getItem('token');
+    if(this.cid!=undefined){ 
+    this.urlnew = 'http://172.18.2.253:3000/findcustomer?cid='+this.cid;
+    fetch(this.urlnew)
+    .then(res=>res.json())
+    .then(data=>{
+      this.username=data[0].customername;      
+    })
+  }
+  else{
+   this.username='noLoggedInUser'
+  }
+
     let url= "http://localhost:3000/showproductbyid?pid="+ this.pid;
       fetch(url,{
         method:"GET",
@@ -34,6 +52,28 @@ myThumbnail:any;
         this.myThumbnail=data[0].productimage;
       })
 
+
+
+      let url3="http://localhost:3000/viewcart?cid="+this.cid;
+      fetch(url3,{
+        method:"GET",
+        headers:{
+          "content-type":"application/json"
+        }
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data);
+        if(data[0]!=null){
+          this.cart='items';
+        }
+        else{
+          this.cart='noitems';
+        }
+      })
+
+
+
       let url2= "http://localhost:3000/showallproduct?city="+this.city;
     fetch(url2,{
       method:"GET",
@@ -47,7 +87,13 @@ myThumbnail:any;
         console.log(data)
       this.List2=data;
     })
+
+
+
+     
+
   }
+  
 
   addtocart(pid:any,cid:any){
     let url3="http://localhost:3000/mycart/"+pid+"/"+cid;

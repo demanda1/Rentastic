@@ -1,0 +1,15 @@
+<!-- login modal -->
+<form >
+    <div class="form-group">
+        <label for="email" style="color:black;">Email address:</label>
+        <input type="email" class="form-control" [(ngModel)]="username" name="username">
+    </div>
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" [(ngModel)]="password" name="password">
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+    </div>
+    <button type="submit" (click)="login()" class="btn btn-success" data-dismiss="modal">Submit</button>
+</form>

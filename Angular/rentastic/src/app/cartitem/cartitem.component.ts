@@ -12,7 +12,9 @@ address:any;
   constructor() { }
 
   ngOnInit() {
-    let url3="http://localhost:3000/viewcart?cid=EcSNPq";
+    this.cid=localStorage.getItem('token');
+    
+    let url3="http://localhost:3000/viewcart?cid="+this.cid;
     fetch(url3,{
       method:"GET",
       headers:{
@@ -24,8 +26,8 @@ address:any;
       console.log(data);
       this.List=data;
     })
-
-    let url4="http://localhost:3000/findcustomer?cid=EcSNPq";
+    
+    let url4="http://localhost:3000/findcustomer?cid="+this.cid;
     fetch(url4,{
       method:"GET",
       headers:{
