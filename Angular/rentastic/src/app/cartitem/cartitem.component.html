@@ -38,7 +38,7 @@
         </div>
 
         <div class="col-2 container" style="background-color:white; border-right: 1px solid lightgray">
-          <span class="fa fa-minus btn"></span> <input type="text" value="1" style="width:35px; height:25px; "> <span class="fa fa-plus btn"></span>
+          <span class="fa fa-minus btn" (click)="minus(object.productid)"></span> <input disabled id="input{{object.productid}}" value="1" type="text"  style="width:35px; height:25px; "> <span class="fa fa-plus btn" (click)="plus(object.productid)"></span>
           <div style="width:150px;padding-top:62px">
               <select class="form-control" id="promocode" name="promo code">
                 <option value="">Promo code</option>
@@ -50,7 +50,7 @@
             </div> 
         </div>
       <div class="col-1 " style="background-color:white;border-right: 2px solid lightgray">
-            <span id="sign" style="font-weight: bolder">₹</span><span id="price" style="font-weight: bolder">{{object.productprice}}</span>
+            <span id="sign" style="font-weight: bolder">₹</span><span id="price{{object.productid}}" style="font-weight: bolder">{{object.productprice}}</span>
       </div>
       <div class="col-4"  style="border-right: 2px solid lightgray">
              <span class="fa fa-check btn"></span>
@@ -58,7 +58,7 @@
              <h6 style="font-style: italic;color:green">Delivery in 2 days</h6>
       </div>
       <div class="col-1 " style="background-color:white;">
-          <span id="sign2" style="font-weight: bolder">₹</span><span id="subtotal" style="font-weight: bolder">{{object.amount}}</span>
+          <span id="sign2" style="font-weight: bolder">₹</span><span id="subtotal{{object.productid}}" style="font-weight: bolder">{{object.productprice }}</span>
       </div> 
      </div>
       </div>
@@ -81,9 +81,9 @@
             <h4>Total Payable Amount:</h4>
           </div>
           <div class="col-1">
-            <div>₹10000</div>
-            <div>₹10</div>
-            <h4>₹10010</h4>
+            <div>₹<span id="amount">0</span></div>
+            <div>₹50</div>
+            <span>₹<span id="finalamount">0</span></span>
           </div>
           </div>
         </div> </div>
