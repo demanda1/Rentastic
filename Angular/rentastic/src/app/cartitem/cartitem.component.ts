@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cartitem',
@@ -13,7 +14,7 @@ amount:any;
 data:number;
 plusval:any;
 quantity:any;
-
+url:string;
   constructor() { }
 
   ngOnInit() {
@@ -74,9 +75,23 @@ quantity:any;
       console.log(id);
       let elementid="input"+id;
      this.plusval=+((<HTMLInputElement>document.getElementById(elementid)).value);
-     var subtotal=+((<HTMLInputElement>document.getElementById("price")).innerHTML);
+     var price="price"+id;
+     var subtotal=+((<HTMLInputElement>document.getElementById(price)).innerHTML);
      if(this.plusval>0){
-     this.quantity=this.plusval-1;
+      this.quantity=this.plusval-1;
+      (<HTMLOutputElement>document.getElementById(elementid)).value=String(this.quantity);
+      console.log(subtotal*this.quantity);
+      let subtot="subtotal"+id;
+      (<HTMLOutputElement>document.getElementById(subtot)).innerHTML=String(this.quantity*subtotal);
+      var sum=0;
+      for (let i of this.List) {
+        let id="subtotal"+i.productid;
+        console.log(id);
+        var p=+(<HTMLInputElement>document.getElementById(id)).innerText;
+       sum=sum+p;
+       }
+      (<HTMLOutputElement>document.getElementById('amount')).innerHTML=String(sum);
+      (<HTMLOutputElement>document.getElementById('finalamount')).innerHTML=String(sum+50);
      }
      (<HTMLOutputElement>document.getElementById(elementid)).value=String(this.quantity);
      (<HTMLOutputElement>document.getElementById('subtotal')).innerHTML=String(this.quantity*subtotal);

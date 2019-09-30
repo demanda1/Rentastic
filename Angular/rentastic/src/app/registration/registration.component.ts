@@ -156,7 +156,8 @@ this.signupform=formbuilder.group({
         .then(data=>{
         console.log(data);
         })
-         this.router.navigate(['nav']);
+        alert("successfully registered !")
+         this.router.navigate(['homepage']);
       }//once the otp row from the database has been deleted we are navigating it back to home page 
 
         })

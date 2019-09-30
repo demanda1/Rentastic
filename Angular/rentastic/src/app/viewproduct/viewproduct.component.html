@@ -38,7 +38,8 @@
     </a></div><i class="fa fa-sign-in text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
 
     <ng-template #helloUser>
-            <a class="btn"style="text-decoration:none"><h6 style="color:white">&nbsp;{{username}}&nbsp;</h6></a>
+            <a href='profile' class="btn"style="text-decoration:none"><h6 style="color:white">&nbsp;{{username}}&nbsp;</h6></a>
+            <a class="btn" (click)=logout() style="text-decoration:none"><h6 style="color:white">&nbsp;logout&nbsp;</h6></a>
         </ng-template>
 
         <div  style="display:inline-block"><a routerLink="/register" style="text-decoration:none"><h6 *ngIf="username=='noLoggedInUser'" style="color:white">&nbsp;&emsp;signup&nbsp;</h6>
@@ -127,7 +128,7 @@
                                 <option value="3">Option 3</option>
                               </select>
                       </div>
-                    <div><button (click)="addtocart('p1','EcSNPq')" class="fa fa-cart-plus fa-lg search btn btn-success" style="width: 200px;margin-left: 20px;"> Add to cart</button></div>
+                    <div><button (click)=addtocart(object.productid) class="fa fa-cart-plus fa-lg search btn btn-success" style="width: 200px;margin-left: 20px;"> Add to cart</button></div>
                 <div class="card-body">
                   <a href="#!" class="card-link">Card link</a>
                   <a href="#!" class="card-link">Another link</a>
@@ -142,3 +143,22 @@
     <p>Footer Text</p>
   </footer>
   
+  <button id="openModal" #openModal [hidden]="true" data-controls-modal="#login-modal" data-backdrop="static" data-keyboard="false" 
+    data-toggle="modal" data-target="#addtocart" ></button>
+
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+      <!-- Modal -->
+      <div class="modal fade" id="addtocart" role="dialog">
+          <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                      <h4>Item added to your successfully </h4>
+                  </div>
+  
+              </div>
+          </div>
+      </div>
+  </div>

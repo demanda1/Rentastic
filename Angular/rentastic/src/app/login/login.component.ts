@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, Route} from '@angular/router';
+import { InteractionService } from '../interaction.service';
 
 @Component({
   selector: 'app-login',
@@ -7,8 +8,8 @@ import {Router, Route} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
-  constructor(private router: Router) { }
+  message:accountInfo;
+  constructor(private router: Router,private interactionService:InteractionService) { }
 
 username: string;
 password: string;
@@ -55,7 +56,19 @@ ngOnInit() {
       
     localStorage.setItem('token',data[0])
     localStorage.setItem('city',this.city);
-    window.location.reload();
+    this.cid=localStorage.getItem('token');
+    this.url=`http://172.18.2.253:3000/findcustomer?cid=`+this.cid;
+    fetch(this.url)
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      console.log("hello")
+      this.message=data[0];
+       this.interactionService.sendMessage(this.message);
+       window.location.reload();
+    })
+
+   
     }
 
   })
@@ -65,3 +78,16 @@ ngOnInit() {
 }
 }
 }
+
+//creating the interface that we have to send
+interface accountInfo{
+  customeraddress:any,
+  customercontact:any,
+  customeremail: any,
+  customergender: any,
+  customerid: any,
+  customername: any,
+  customerpassword: any,
+  customerwallet: any,
+  id: any,
+  }

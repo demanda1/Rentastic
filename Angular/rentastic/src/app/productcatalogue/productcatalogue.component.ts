@@ -132,4 +132,10 @@ export class ProductcatalogueComponent implements OnInit {
   }
 }
 
+
+logout(){
+  localStorage.removeItem('token');
+  window.location.reload();
+}
+
 }

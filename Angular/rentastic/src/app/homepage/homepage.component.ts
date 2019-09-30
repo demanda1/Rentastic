@@ -24,6 +24,7 @@ cart:string;
    }
 
   ngOnInit() {
+
     localStorage.setItem("city",this.city);
     console.log("mycity"+this.city)
     this.city=localStorage.getItem('city');
@@ -89,5 +90,9 @@ cart:string;
       console.log(data)})
     }
 
+    logout(){
+      localStorage.removeItem('token');
+      window.location.reload();
+    }
   
 }

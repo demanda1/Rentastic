@@ -11,10 +11,20 @@ import { CartitemComponent } from './cartitem/cartitem.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LogoutComponent } from './home/logout/logout.component';
+import { PancardComponent } from './home/pancard/pancard.component';
+import { AddressComponent } from './home/address/address.component';
+import { RewardComponent } from './home/reward/reward.component';
+import { NotificationComponent } from './home/notification/notification.component';
+import { PaymentComponent } from './home/payment/payment.component';
+
+import { OrderComponent } from './home/order/order.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   {path:'',component:SelectcityComponent},
-  {path:'home',component:HomepageComponent},
   {path:'homepage/:city' ,component:HomepageComponent},
   {path:'productcatalogue/:category/:city', component:ProductcatalogueComponent},
   {path:'cartpage',component:CartpageComponent},
@@ -23,7 +33,51 @@ const routes: Routes = [
   {path:'navbar',component:NavbarComponent},
   {path:'cartitem',component:CartitemComponent},
   {path:'register',component:RegistrationComponent},
-  {path:'**',component:PageNotFoundComponent}
+  {path:'profile', component:ProfileComponent},
+  {path:'checkout',component:CheckoutComponent},
+  {
+    path: 'home',
+    children:[
+      {
+        path:'order',
+        component:OrderComponent
+      },
+      {
+        path:'profile',
+        component:ProfileComponent
+      },
+      {
+        path:'payment',
+      component:PaymentComponent
+      },
+      {
+        path:'notification',
+      component:NotificationComponent
+      },
+      {
+        path:'reward',
+      component:RewardComponent
+      },
+      {
+        path:'address',
+      component:AddressComponent
+      },
+    
+      {
+        path:'pancard',
+      component:PancardComponent
+      },
+      {
+        path:'logout',
+        component:LogoutComponent
+      },
+      {
+        path:'',
+        component:HomeComponent
+      }
+    ]    
+  },
+  {path:'**',component:PageNotFoundComponent},
 ];
 
 @NgModule({
@@ -33,4 +87,11 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const RoutingComponent =[SelectcityComponent, HomepageComponent ,ProductcatalogueComponent, CartpageComponent,
                                 ViewproductComponent, AdvertiseComponent, NavbarComponent,CartitemComponent,
-                                LoginComponent,RegistrationComponent,PageNotFoundComponent];
+                                LoginComponent,RegistrationComponent,PageNotFoundComponent, ProfileComponent,
+                                OrderComponent,
+                                PaymentComponent,
+                                NotificationComponent,
+                                RewardComponent,
+                                LogoutComponent,
+                                AddressComponent,
+                                PancardComponent,HomeComponent,CheckoutComponent];

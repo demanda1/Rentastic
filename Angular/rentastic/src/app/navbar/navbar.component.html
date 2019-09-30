@@ -37,7 +37,8 @@
         </a></div><i class="fa fa-sign-in text-grey fa-xs " style="color:lightgray;" aria-hidden="true"></i>
 
         <ng-template #helloUser>
-                <a class="btn"style="text-decoration:none"><h6 style="color:white">&nbsp;{{username}}&nbsp;</h6></a>
+                <a href='profile' class="btn"style="text-decoration:none"><h6 style="color:white">&nbsp;{{username}}&nbsp;</h6></a>
+                <a class="btn" (click)=logout() style="text-decoration:none"><h6 style="color:white">&nbsp;logout&nbsp;</h6></a>
             </ng-template>
 
             <div  style="display:inline-block"><a routerLink="/register" style="text-decoration:none"><h6 *ngIf="username=='noLoggedInUser'" style="color:white">&nbsp;&emsp;signup&nbsp;</h6>

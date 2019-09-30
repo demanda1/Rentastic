@@ -12,11 +12,14 @@ import { CartpageComponent } from './cartpage/cartpage.component';
 import { CartitemComponent } from './cartitem/cartitem.component';
 import { ViewproductComponent } from './viewproduct/viewproduct.component';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { InteractionService } from './interaction.service';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-   RoutingComponent
+   RoutingComponent,
+   CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,7 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
     NgxImageZoomModule.forRoot(),
     FormsModule,ReactiveFormsModule
   ],
-  providers: [],
+  providers: [InteractionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

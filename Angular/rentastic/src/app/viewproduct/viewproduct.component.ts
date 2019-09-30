@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./viewproduct.component.css']
 })
 export class ViewproductComponent implements OnInit {
+  @ViewChild('openModal',undefined) openModal:ElementRef;
 city:any;
 List:any;
 List2:any;
@@ -95,9 +96,12 @@ username:string;
   }
   
 
-  addtocart(pid:any,cid:any){
-    let url3="http://localhost:3000/mycart/"+pid+"/"+cid;
-    fetch(url3,{
+  addtocart(pid:any){
+    console.log("bought the product",pid);
+    this.cid=localStorage.getItem('token');
+    if(this.cid!==undefined){
+    let addurl="http://localhost:3000/mycart/"+pid+"/"+this.cid;
+    fetch(addurl,{
       method:"GET",
       headers:{
         "content-type":"application/json"
@@ -106,7 +110,10 @@ username:string;
     .then(res=>res.json())
     .then(data=>{
       console.log(data);
-      alert("product successfully added to cart!");
+      if(data!=null){
+        this.openModal.nativeElement.click();
+      }
     })
   }
+}
 }
