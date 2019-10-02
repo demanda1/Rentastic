@@ -1,18 +1,20 @@
+<div style="text-align: center; background-image: url(https://beanstalkwebsolutions.com/blog/wp-content/uploads/2016/08/ways-your-website-can-hurt-sales.jpg)" >
 <div *ngIf="error">
     <div class="alert alert-danger">
         <strong style="color: black; font-size: 20px;">{{error}}</strong>
     </div>
 </div>
-<div class="signup-form">
 
-    <form [formGroup]='signupform' (ngSubmit)="postData(signupform)">
-        <h2>Register</h2>
+<div class="signup-form " style="width: 600px; display:inline-block">
+
+    <form [formGroup]='signupform' (ngSubmit)="postData(signupform)" class="shadow-lg bg-black" style="background-color: white"> 
+        <h2 style="-webkit-text-fill-color: black;">Register</h2>
         <p class="hint-text">Create your account. It's free and only takes a minute.</p>
-        <div class="form-group">
+        <div class="form-group" >
 
             <div class="row">
-                <div class="col-xs-6"><input type="text" class="form-control" formControlName="fname" placeholder="First Name"></div>
-                <div class="col-xs-6"><input type="text" class="form-control" formControlName="lname" placeholder="Last Name"></div>
+                <div class="col-6"><input type="text" class="form-control" formControlName="fname" placeholder="First Name"></div>
+                <div class="col-6"><input type="text" class="form-control" formControlName="lname" placeholder="Last Name"></div>
             </div>
         </div>
         <div class="form-group">
@@ -48,12 +50,11 @@
         <div class="form-group">
             <button type="submit" class="btn btn-success btn-lg btn-block" [disabled]='!signupform.valid' data-toggle="modal" data-target="#exampleModal">Register Now</button>
         </div>
+        <div class="text-center">Already have an account? <a href="#" data-toggle="modal" data-target="#LoginModal">Sign in</a></div>
     </form>
-    <div class="text-center">Already have an account? <a href="#" data-toggle="modal" data-target="#LoginModal">Sign in</a></div>
 
     <!-- Modal -->
-    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade shadow-lg bg-black" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -87,24 +88,48 @@
             </div>
         </div>
     </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: rgb(10, 37, 34)">
+        <h5 class="modal-title" id="exampleModalLabel" style="-webkit-text-fill-color: white">Login</h5>
+        <button style="-webkit-text-fill-color: white" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-login></app-login>
+      </div>
+      <div class="modal-footer" style="background-color: turquoise">
+      </div>
+    </div>
+  </div>
 </div>
 
-
-
-<div class="shadow-lg p-3 mb-5 bg-white rounded">
-    <!-- Modal -->
-    <div class="modal fade" id="LoginModal" role="dialog">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Login</h4>
-                </div>
-                <div class="modal-body">
-                    <app-login></app-login>
-                </div>
-
-            </div>
+    
+    <button id="openModal" #openModal [hidden]="true" data-controls-modal="#login-modal"
+    data-toggle="modal" data-target="#admodal" ></button>
+    
+  <!-- Modal -->
+  <div class="modal fade" id="admodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="border-radius: 50px; width:300px">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: rgb(241, 241, 35) ">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body" style="background-color:crimson ;border:none" >
+          <h3 style="-webkit-text-fill-color:whitesmoke">Yayy!!!</h3><h3 style="-webkit-text-fill-color: whitesmoke"> Get ₹ 1000/-</h3><h5>instantaneously on your Rentastic Wallet on Signup !!</h5>
+        </div>
+        <div class="modal-footer" style="background-color: rgb(255, 136, 0) ">
+        </div>
+      </div>
     </div>
+  </div>
 </div>

@@ -11,7 +11,8 @@ export class NavbarComponent implements OnInit {
  userid:string;
  key:'123456$#@$^@1ERF';
  _url:any;
-
+cid:any;
+cart:any;
   constructor() { }
 
   ngOnInit() {
@@ -33,6 +34,31 @@ export class NavbarComponent implements OnInit {
   else{
    this.username='noLoggedInUser'
   }
+
+  this.cid=localStorage.getItem('token');
+    let url3="http://localhost:3000/viewcart?cid="+this.cid;
+  fetch(url3,{
+    method:"GET",
+    headers:{
+      "content-type":"application/json"
+    }
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    console.log(data);
+    if(data[0]!=null){
+      this.cart='items';
+    }
+    else{
+      this.cart='noitems';
+    }
+  })
 }
+
+logout(){
+  localStorage.removeItem('token');
+  window.location.reload();
+}
+
   
 }

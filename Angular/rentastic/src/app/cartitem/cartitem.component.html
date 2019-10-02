@@ -32,16 +32,21 @@
                   <p class="fa fa-star" style="color:gold"></p><p class="fa fa-star" style="color:gold"></p><p class="fa fa-star" style="color:gold"></p><p class="fa fa-star" style="color:gold"></p></div>
                           
               <div class="col-8" style="text-align:right;">
-                      <span class="fa fa-trash btn" style="color:gray"></span>
+                      <span (click)="deleteitem(object.productid)" class="fa fa-trash btn" style="color:gray"></span>
               </div>
           </div>
         </div>
 
         <div class="col-2 container" style="background-color:white; border-right: 1px solid lightgray">
+          <span>Quantity<br></span>
           <span class="fa fa-minus btn" (click)="minus(object.productid)"></span> <input disabled id="input{{object.productid}}" value="1" type="text"  style="width:35px; height:25px; "> <span class="fa fa-plus btn" (click)="plus(object.productid)"></span>
-          <div style="width:150px;padding-top:62px">
+          <span><br><br>Time Period<br></span>
+          <span class="fa fa-minus btn" (click)="timeminus(object.productid)"></span> <input disabled id="period{{object.productid}}" value="1" type="text"  style="width:35px; height:25px; "> <span class="fa fa-plus btn" (click)="timeplus(object.productid)"></span>
+          
+          
+          <div style="width:150px;padding-top:31px">
               <select class="form-control" id="promocode" name="promo code">
-                <option value="">Promo code</option>
+                <option value="">apply coupon</option>
                 <option>FIRSTRENT</option>
                 <option>RENT50</option>
                 <option>RENTFLY</option>
@@ -50,7 +55,7 @@
             </div> 
         </div>
       <div class="col-1 " style="background-color:white;border-right: 2px solid lightgray">
-            <span id="sign" style="font-weight: bolder">₹</span><span id="price{{object.productid}}" style="font-weight: bolder">{{object.productprice}}</span>
+            <span id="sign" style="font-weight: bolder">₹</span><span id="price{{object.productid}}" style="font-weight: bolder">{{object.productprice}}</span>/month
       </div>
       <div class="col-4"  style="border-right: 2px solid lightgray">
              <span class="fa fa-check btn"></span>
@@ -72,7 +77,7 @@
      <div>
      <div class="card-header container shadow-lg" style="color:ivory;background-color:tomato; border-radius:5px">
           <div class="row">
-          <div class="col-4" style="padding-top: 22px"> <input type="button" class="btn btn-warning" value="+ Add More Items"> </div>
+          <div class="col-4" style="padding-top: 22px"> <input (click)=addmore() type="button" class="btn btn-warning" value="+ Add More Items"> </div>
           <div class="col-2"> </div>
           <div class="col-1"></div>
           <div class="col-4" style="text-align: right">
@@ -89,7 +94,7 @@
         </div> </div>
       <!--CART Footer Ends-->
       <div>
-      <div  class="container" style="padding: 10px; text-align:end"> <a href='checkout' type="button" class="btn btn-success btn-lg" value="Checkout">Checkout</a></div>
+      <div  class="container" style="padding: 10px; text-align:end"> <a (click)=checkout() type="button" class="btn btn-success btn-lg" value="Checkout">Checkout</a></div>
       </div>
 
 

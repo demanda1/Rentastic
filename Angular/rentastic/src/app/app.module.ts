@@ -14,12 +14,14 @@ import { ViewproductComponent } from './viewproduct/viewproduct.component';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { InteractionService } from './interaction.service';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { CartverifyComponent } from './cartverify/cartverify.component';
 
 @NgModule({
   declarations: [
     AppComponent,
    RoutingComponent,
-   CheckoutComponent
+   CheckoutComponent,
+   CartverifyComponent
   ],
   imports: [
     BrowserModule,

@@ -18,3 +18,7 @@
     max-height: 450px!important;
     }
 
+    .btn:hover{
+        transform: scale(1.2);
+        color:royalblue;
+    }

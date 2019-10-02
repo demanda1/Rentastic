@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ViewproductComponent implements OnInit {
   @ViewChild('openModal',undefined) openModal:ElementRef;
+  @ViewChild('closeModal',undefined) closeModal:ElementRef;
 city:any;
 List:any;
 List2:any;
@@ -18,6 +19,7 @@ cid:string;
 urlnew:string;
 cart:string;
 username:string;
+cartlist:any;
 
   constructor(private router:Router,private activatedRoute:ActivatedRoute) {
     this.activatedRoute.params.subscribe(params=>{ this.pid=params['pid'], this.city=params['city']});
@@ -65,6 +67,7 @@ username:string;
       .then(res=>res.json())
       .then(data=>{
         console.log(data);
+        this.cartlist=data;
         if(data[0]!=null){
           this.cart='items';
         }
@@ -99,7 +102,14 @@ username:string;
   addtocart(pid:any){
     console.log("bought the product",pid);
     this.cid=localStorage.getItem('token');
-    if(this.cid!==undefined){
+    let buy="yes";
+    for(let i of this.cartlist){
+      if(i.productid==pid){
+        console.log("no")
+        buy="no";
+      }
+    }
+    if(this.cid!==undefined && buy=="yes"){
     let addurl="http://localhost:3000/mycart/"+pid+"/"+this.cid;
     fetch(addurl,{
       method:"GET",
@@ -114,6 +124,9 @@ username:string;
         this.openModal.nativeElement.click();
       }
     })
+  }
+  else{
+    this.closeModal.nativeElement.click();
   }
 }
 }

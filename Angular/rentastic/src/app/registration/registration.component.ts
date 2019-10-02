@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
 import { Router } from '@angular/router';
 import {FormGroup,FormControl, FormBuilder, Validators, NgForm} from '@angular/forms';
@@ -10,7 +10,7 @@ import {FormGroup,FormControl, FormBuilder, Validators, NgForm} from '@angular/f
 })
 
 export class RegistrationComponent implements OnInit {
-
+  @ViewChild('openModal',undefined) openModal:ElementRef;
   signupform:FormGroup;
   
   fname:String
@@ -51,6 +51,7 @@ this.signupform=formbuilder.group({
 
 
   ngOnInit() {
+    this.openModal.nativeElement.click();
   }
 
   //before registering we are using the api to send the otp for email verification
@@ -127,6 +128,7 @@ this.signupform=formbuilder.group({
               customercontact: this.phonenumber,
               customergender:this.gender,
               customeraddress:this.address,
+              customerwallet:1000
           })
         })
         .then(res=>res.json()) //getting the response the user registration
@@ -157,7 +159,7 @@ this.signupform=formbuilder.group({
         console.log(data);
         })
         alert("successfully registered !")
-         this.router.navigate(['homepage']);
+         this.router.navigate(['']);
       }//once the otp row from the database has been deleted we are navigating it back to home page 
 
         })

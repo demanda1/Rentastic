@@ -22,9 +22,11 @@ import { OrderComponent } from './home/order/order.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { CartverifyComponent } from './cartverify/cartverify.component';
 
 const routes: Routes = [
   {path:'',component:SelectcityComponent},
+  {path:'home' ,component:HomepageComponent},
   {path:'homepage/:city' ,component:HomepageComponent},
   {path:'productcatalogue/:category/:city', component:ProductcatalogueComponent},
   {path:'cartpage',component:CartpageComponent},
@@ -35,6 +37,7 @@ const routes: Routes = [
   {path:'register',component:RegistrationComponent},
   {path:'profile', component:ProfileComponent},
   {path:'checkout',component:CheckoutComponent},
+  {path:'cartverify',component:CartverifyComponent},
   {
     path: 'home',
     children:[
@@ -94,4 +97,4 @@ export const RoutingComponent =[SelectcityComponent, HomepageComponent ,Productc
                                 RewardComponent,
                                 LogoutComponent,
                                 AddressComponent,
-                                PancardComponent,HomeComponent,CheckoutComponent];
+                                PancardComponent,HomeComponent,CheckoutComponent,CartverifyComponent];
