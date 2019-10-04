@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ProductcatalogueComponent implements OnInit {
   @ViewChild('openModal',undefined) openModal:ElementRef;
-  
+  @ViewChild('closeModal',undefined) closeModal:ElementRef;
  city:any;
  category:any;
  List:any
@@ -19,6 +19,7 @@ export class ProductcatalogueComponent implements OnInit {
   cid:any;
   cart:string;
   addurl:any;
+  cartlist:any;
    
   constructor(private router:Router,private activatedRoute:ActivatedRoute) {
     this.activatedRoute.params.subscribe(params=>{ this.category=params['category'],this.city=params['city']});
@@ -52,6 +53,7 @@ export class ProductcatalogueComponent implements OnInit {
   .then(res=>res.json())
   .then(data=>{
     console.log(data);
+    this.cartlist=data;
     if(data[0]!=null){
       this.cart='items';
     }
@@ -110,11 +112,17 @@ export class ProductcatalogueComponent implements OnInit {
     }
   }
 
-
   addtocart(pid:any){
     console.log("bought the product",pid);
     this.cid=localStorage.getItem('token');
-    if(this.cid!==undefined){
+    let buy="yes";
+    for(let i of this.cartlist){
+      if(i.productid==pid){
+        console.log("no")
+        buy="no";
+      }
+    }
+    if(this.cid!==undefined && buy=="yes"){
     let addurl="http://localhost:3000/mycart/"+pid+"/"+this.cid;
     fetch(addurl,{
       method:"GET",
@@ -130,8 +138,11 @@ export class ProductcatalogueComponent implements OnInit {
       }
     })
   }
+  else{
+    this.closeModal.nativeElement.click();
+  }
 }
-
+  
 
 logout(){
   localStorage.removeItem('token');

@@ -56,7 +56,7 @@
 
 <script>
         /* Execute the magnify function: */
-        magnify("myimage", 3);
+        magnify("myimage", 1);
         /* Specify the id of the image, and the strength of the magnifier glass: */
         </script>
 
@@ -77,8 +77,11 @@
                        <h5 class="card-title">{{object2.productname}}</h5>
                          <a href="/viewproduct/{{city}}/{{object2.productid}}" class="btn btn-primary fa fa-search fa-lg search" style="border-radius: 50%"></a>
                          <span>&nbsp;&emsp;&nbsp;</span>
-                         <a href="/cartpage" class="btn btn-success fa fa-cart-plus fa-lg search" style="border-radius:40%"></a>
-                     </div>
+                         <span *ngIf="username=='noLoggedInUser', else helloUser"><a  data-toggle="modal" data-target="#LoginModal"  class="btn btn-success fa fa-cart-plus fa-lg search" style="border-radius:50%"></a></span>
+                 <ng-template #helloUser>
+                  <a class="btn"(click)=addtocart(object.productid) class="btn btn-success fa fa-cart-plus fa-lg search" style="border-radius:50%"  style="text-decoration:none"></a>
+              </ng-template>
+                         </div>
                     </div>
                     
               </div>
@@ -98,7 +101,7 @@
                 <ngx-image-zoom
                 [thumbImage]=myThumbnail
                 [fullImage]="myFulresImage"
-                [magnification]="2"
+                [magnification]="1"
                 [enableScrollZoom]="true"
                 [enableLens]="true"
                 [lensWidth]="250"
@@ -123,9 +126,13 @@
                         <h5 class="mb-0"></h5>
                         
                       </div>
-                    <div><button (click)=addtocart(object.productid) class="fa fa-cart-plus fa-lg search btn btn-success" style="width: 200px;margin-left: 20px;"> Add to cart</button></div>
-                <div class="card-body">
-                  
+                    
+                    <span *ngIf="username=='noLoggedInUser', else helloUser">&nbsp;&emsp;<a  data-toggle="modal" data-target="#LoginModal"  class="btn btn-success fa fa-cart-plus fa-lg search"  value="Add to cart">Add to Cart</a></span>
+                    <ng-template #helloUser>
+                     <a class="btn"(click)=addtocart(object.productid)  class="btn btn-success fa fa-cart-plus fa-lg search"   style="text-decoration:none">Add to cart</a>
+                 </ng-template>
+                    <div class="card-body">
+
                 </div>
               </div>
           </div>

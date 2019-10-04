@@ -15,13 +15,15 @@ import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { InteractionService } from './interaction.service';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CartverifyComponent } from './cartverify/cartverify.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
     AppComponent,
    RoutingComponent,
    CheckoutComponent,
-   CartverifyComponent
+   CartverifyComponent,
+   ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,

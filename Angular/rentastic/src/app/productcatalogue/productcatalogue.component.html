@@ -139,22 +139,42 @@
           </div>
         </div>
 
-    <button id="openModal" #openModal [hidden]="true" data-controls-modal="#login-modal" data-backdrop="static" data-keyboard="false" 
-    data-toggle="modal" data-target="#addtocart" ></button>
-
-    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-      <!-- Modal -->
-      <div class="modal fade" id="addtocart" role="dialog">
-          <div class="modal-dialog modal-sm">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button id="openModal" #openModal [hidden]="true" data-controls-modal="#login-modal" data-backdrop="static" data-keyboard="false" 
+        data-toggle="modal" data-target="#addtocart" ></button>
+    
+        <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <!-- Modal -->
+          <div class="modal fade" id="addtocart" role="dialog">
+              <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                      <div class="modal-header" style="background-color: rgb(76, 207, 76)">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                          <h5>Item added to your cart successfully </h5>
+                      </div>
+      
                   </div>
-                  <div class="modal-body">
-                      <h5>Item added to your cart successfully </h5>
-                  </div>
-  
               </div>
           </div>
       </div>
-  </div>
+      
+  <button id="closeModal" #closeModal [hidden]="true" data-controls-modal="#not-add"  
+    data-toggle="modal" data-target="#notadd" ></button>
+
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <!-- Modal -->
+        <div class="modal fade" id="notadd" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content" >
+                    <div class="modal-header" style="background-color: rgb(231, 167, 48)">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Item is already present in your cart </h5>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>

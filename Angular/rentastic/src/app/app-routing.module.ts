@@ -23,6 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CartverifyComponent } from './cartverify/cartverify.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 const routes: Routes = [
   {path:'',component:SelectcityComponent},
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path:'register',component:RegistrationComponent},
   {path:'profile', component:ProfileComponent},
   {path:'checkout',component:CheckoutComponent},
+  {path:'fp',component:ForgotpasswordComponent},
   {path:'cartverify',component:CartverifyComponent},
   {
     path: 'home',
@@ -97,4 +99,4 @@ export const RoutingComponent =[SelectcityComponent, HomepageComponent ,Productc
                                 RewardComponent,
                                 LogoutComponent,
                                 AddressComponent,
-                                PancardComponent,HomeComponent,CheckoutComponent,CartverifyComponent];
+                                PancardComponent,HomeComponent,CheckoutComponent,CartverifyComponent,ForgotpasswordComponent];
