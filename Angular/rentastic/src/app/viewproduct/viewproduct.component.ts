@@ -129,4 +129,11 @@ cartlist:any;
     this.closeModal.nativeElement.click();
   }
 }
+
+
+logout(){
+  localStorage.removeItem('token');
+  window.location.reload();
+}
+
 }

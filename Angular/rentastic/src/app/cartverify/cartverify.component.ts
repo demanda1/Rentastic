@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { HttpClient } from  '@angular/common/http';
 
 @Component({
   selector: 'app-cartverify',
@@ -7,6 +8,11 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 })
 export class CartverifyComponent implements OnInit {
   @ViewChild('openModal',undefined) openModal:ElementRef;
+  @ViewChild('submitbtn',undefined) submitbtn:ElementRef;
+
+  public payuform: any = {};
+  disablePaymentButton: boolean = true;
+  
 
   idtype:any;
   idnum:any;
@@ -19,13 +25,22 @@ export class CartverifyComponent implements OnInit {
   tablerows:any;
   name:any;
   email:any;
-  constructor() { 
+
+  productInfo:any;
+         phone:any;
+         surl:any;
+         furl:any;
+         key:any;
+         txnid:any;
+
+  constructor(private http: HttpClient) { 
 
   }
 
   ngOnInit() {
     this.tablerows="";
     this.amount=+localStorage.getItem('amount');
+    localStorage.removeItem('amount');
     ((<HTMLInputElement>document.getElementById("spinner")).hidden=true);
     this.cid=localStorage.getItem('token');
     let url="http://localhost:3000/findcustomer?cid="+this.cid;
@@ -77,6 +92,31 @@ export class CartverifyComponent implements OnInit {
         "content-type":"application/json"
       }
     })
+
+
+    const paymentPayload = {
+      name: this.name,
+      email: this.email,
+      productInfo: "My Product",
+      amount: this.amount,
+
+    }
+    return this.http.post<any>('http://localhost:3000/payment-details', paymentPayload).subscribe(
+      data => {
+      console.log(data)
+      this.payuform.productinfo="My Product";
+      this.payuform.firstname=paymentPayload.name;
+      this.payuform.email=paymentPayload.email;
+      this.payuform.amount=paymentPayload.amount;
+      this.payuform.surl = data.surl;
+      this.payuform.furl = data.furl;
+      this.payuform.key = data.key;
+      this.payuform.hash = data.hash;
+      this.payuform.txnid = data.txnId;
+    }, error1 => {
+        console.log(error1);
+      })
+      
   }
 
   transaction(){
@@ -134,5 +174,9 @@ export class CartverifyComponent implements OnInit {
 
 
 
+  }
+
+  portal(){
+    this.submitbtn.nativeElement.click();
   }
 }

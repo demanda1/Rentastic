@@ -26,7 +26,7 @@
             <div class="card text-center mb-3 shadow-lg  bg-white rounded" style="width: 20rem; display:inline-block; background-color: turquoise">
                     <div class="card-body">
                       <div style="display: inline-block" >
-                            <p class="card-text"><button    style="width:250px" class="btn btn-warning" id ="paybtn" disabled>Go to Payment Portal</button></p>
+                            <p class="card-text"><button (click)="portal()" type="submit" style="width:250px" class="btn btn-warning" id ="paybtn" disabled>Go to Payment Portal</button></p>
                             <div class="card-text"  *ngIf="active=='active'; else inactive"><button data-toggle="modal" data-target="#walletmodal" style="width:250px" class="btn btn-warning" id ="walletbtn" disabled>Pay by Rentastic Wallet</button></div>
                             <ng-template #inactive>
                                 <button data-toggle="modal" data-target="#inactivemodal" style="width:250px" class="btn btn-warning" id ="walletbtn" disabled>Pay by Rentastic Wallet</button>
@@ -144,3 +144,37 @@ data-toggle="modal" data-target="#successmodal"  ></button>
               </div>
             </div>
           </div>
+
+            
+<div class="col-md-4">
+        <form ngNoForm action="https://test.payu.in/_payment" name="payuform" method="POST" target="payment_popup" onsubmit="window.open('about:blank','payment_popup','width=1110,height=700');">
+            <div class="form-group">
+                <!-- <label for="productInfo">Product Name:</label> -->
+                <input type="text" class="form-control" id="productInfo" name="productinfo" hidden [(ngModel)]="payuform.productinfo" >
+            </div>
+            <div class="form-group">
+                <!-- <label for="firstname">Name:</label> -->
+                <input type="text" class="form-control" id="firstname" name="firstname" hidden [(ngModel)]="payuform.firstname" >
+            </div>
+            <div class="form-group">
+                <!-- <label for="email">Email:</label> -->
+                <input type="email" class="form-control" id="email" name="email" hidden [(ngModel)]="payuform.email">
+            </div>
+            <div class="form-group">
+                <!-- <label for="email">Phone:</label> -->
+                <input type="number" class="form-control" id="phone" name="phone" hidden [(ngModel)]="payuform.phone" >
+            </div>
+            <div class="form-group">
+                <!-- <label for="amount">Amount:</label> -->
+                <input type="number" class="form-control" id="amount" name="amount" hidden [(ngModel)]="payuform.amount">
+            </div>
+            <textarea name="surl" id="surl" ng-model="surl" rows="2" cols="2" hidden [(ngModel)]="payuform.surl"></textarea>
+            <textarea name="furl" id="furl" ng-model="furl" rows="2" cols="2" hidden [(ngModel)]="payuform.furl"></textarea>
+            <textarea name="key" id="key" ng-model="key" rows="2" cols="2" hidden [(ngModel)]="payuform.key"></textarea>
+            <textarea name="hash" id="hash" ng-model="hash" rows="2" cols="2" hidden [(ngModel)]="payuform.hash"></textarea>
+            <textarea name="txnid" id="txnid" ng-model="txnid" rows="2" cols="2" hidden [(ngModel)]="payuform.txnid"></textarea>
+            <textarea name="service_provider" id="service_provider" rows="2" hidden cols="2" ></textarea>
+            
+            <button id="submitbtn" #submitbtn [hidden]="true"  type="submit" class="btn btn-danger">Submit</button>
+        </form>
+    </div>

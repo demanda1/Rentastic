@@ -16,6 +16,7 @@ import { InteractionService } from './interaction.service';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CartverifyComponent } from './cartverify/cartverify.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
     BrowserModule,
     AppRoutingModule,
     NgxImageZoomModule.forRoot(),
-    FormsModule,ReactiveFormsModule
+    FormsModule,ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [InteractionService],
   bootstrap: [AppComponent]
