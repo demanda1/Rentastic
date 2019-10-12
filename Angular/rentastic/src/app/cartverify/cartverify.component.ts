@@ -22,10 +22,11 @@ export class CartverifyComponent implements OnInit {
   amount:any;
   active:String;
   invoicelist:any;
+  clist:any;
+  clist2:any[]=[];
   tablerows:any;
   name:any;
   email:any;
-
   productInfo:any;
          phone:any;
          surl:any;
@@ -70,6 +71,29 @@ export class CartverifyComponent implements OnInit {
       console.log(data);
       this.invoicelist=data;
     })
+    setTimeout(()=>{
+    let url4="http://localhost:3000/seecart?cid="+this.cid;
+    fetch(url4,{
+     method:"GET",
+     headers:{
+       "content-type":"application/json"
+     }
+   }).then(res=>res.json())
+   .then(data=>{
+     console.log(data);
+     this.clist=data;
+   })
+
+   setTimeout(()=>{
+   let x=0;
+   for(let i of this.clist){
+      this.clist2.push(i.quantity);
+      console.log(this.clist2[x]);
+      x++;
+   }
+  },2000)
+
+},2000)
     
     
   }
@@ -140,10 +164,11 @@ export class CartverifyComponent implements OnInit {
         
     
       setTimeout(()=>{
-
+      let x=0;
       for(let i of this.invoicelist){
-      this.tablerows+="<tr><td><img src='"+i.productimage+"' style='width:50px;'></td><td>"+i.productname+"</td><td>"+i.productquantity+"</td><td>"+i.productprice+"</td></tr>";
-      }
+      this.tablerows+="<tr><td><img src='"+i.productimage+"' style='width:50px;'></td><td>"+i.productname+"</td><td>"+this.clist2[x]+"</td><td>"+i.productprice+"</td></tr>";
+      x++;
+    }
       this.tablerows+="<tr><td></td><td></td><td>Total Amount: </td><td>"+this.amount+"</td></tr>";
       setTimeout(()=>{
         console.log("Invoice email activated" +this.tablerows);
